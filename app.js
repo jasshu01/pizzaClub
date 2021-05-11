@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views')) // Set the views directory
 
 
 app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname+'/static/EDIT_1.html'))
+    res.sendFile(path.join(__dirname+'/static/index.html'))
 })
 
 
