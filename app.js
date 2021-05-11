@@ -3,7 +3,7 @@ const path = require("path");
 var nodemailer = require('nodemailer');
 // const { mainModule } = require("process");
 const app = express();
-var port=80;
+// var port=80;
 // var port = process.env.PORT || 8080;
 
 // app.use(express.static(__dirname )
@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views')) // Set the views directory
 
 
 app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname+'/static/index.html'))
+    res.sendFile(path.join(__dirname+'/static/EDIT_1.html'))
 })
 
 
@@ -53,8 +53,11 @@ app.post("/", (req, res) => {
 
 
 // // START THE SERVER
-app.listen(port, () => {
-        console.log(`The application started successfully on port ${port}`);
-    });
+// app.listen(port, () => {
+//         console.log(`The application started successfully on port ${port}`);
+//     });
     
     
+    app.listen(process.env.PORT || 3000, () => {
+        console.log('Server is started on 127.0.0.1:'+ (process.env.PORT || 3000))
+    })
