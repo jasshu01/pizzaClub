@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- wen icon -->
+    <link href="img/delivery.svg" rel="icon">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <title>Pizza Club!</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+
+        <nav style="height: 10%; "
+            class="navbar navbar-expand-lg px-4 navbar-dark bg-primary fixed-top scrolling-navbar">
+            <a class="navbar-brand" href="#"><img src="img/pizza_logo.svg" alt="" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mx-auto text-capitalize">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " href="#about">about</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#store">store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-info-items d-none d-lg-flex">
+                    <div id="cart-info"
+                        class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+                        <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>
+                        <p class="mb-0 text-capitalize"><span id="item-count"> </span> items - Rs. <span
+                                class="item-total" id="item-total"></span></p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Order Recieved!</strong> You will be enjoying your Order shortly.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div> -->
+
+    </header>
+    <!-- 
+    <div class="topRight">
+        
+        <div class="nav-info-items d-none d-lg-flex">
+            <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+                <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>
+                <p class="mb-0 text-capitalize"><span id="item-count"> </span> items - Rs. <span class="item-total" id="item-total"></span></p>
+            </div>
+        </div>
+    </div> -->
+
+    <section class="home">
+        <div class="pizzaBody">
+
+            <img src="pizza_back1.jpg" alt="">
+
+
+
+            <div class="centered">
+
+                <h1 class="text-capitalize" style="color: white;">Welcome to <br><strong class="banner-title ">Pizza
+                        Club!</strong>
+                </h1>
+                <a href="#about" class="btn banner-link text-uppercase my-2"
+                    style="color: white; border: 2px dotted white;">explore</a>
+            </div>
+        </div>
+
+
+
+    </section>
+    <div>
+        <div class="container-fluid background">
+
+
+        </div>
+        <div class=" my-0 justify-content-center align-items-center" style="display: none;">
+
+            <div id="cart" class="cart">
+
+            </div>
+        </div>
+    </div>
+    <!-- header -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- about us -->
+
+    <!-- <div class="aboutusdivs">
+            <div class="aboutdivs" id="about_us_2">
+                <div class="card text-white bg-primary my-4 w-75" style="border-radius: 10px;">
+                    <div class="card-body">
+                        <p class="card-text">Pizza Club is just the medium to add spice in your routine and get
+                            refreshed with out excellent service.
+                            We are certified and working in this field for over 15 years with many happy and loyal
+                            customers.
+                            We are one of the best in serving tasty pizzas all over the world! Just head on to our store
+                            and order some delicious pizzas.</p>
+                    </div>
+                </div>
+                <a href="#store" class="btn btn-outline-secondary btn-black text-uppercase "
+                    style="margin-left: 20%;">explore</a>
+            </div>
+            <div class="aboutdivs" id="about_us_1">
+<div id="images">
+    <img class="d-block w-75 " src="pizzas/1.png" alt="Second slide">
+</div>
+                <br>
+                <div class="card text-white bg-info w-75" style="border-radius: 10px;">
+                    <div class="card-body">
+                        <p class="card-text">Pizza is a savory dish of Italian origin consisting of a usually round,flattened base of leavened <br>wheat-based dough topped with tomatoes, cheese, and often various other ingredients <br>(such as anchovies, mushrooms, onions, olives, pineapple, meat, etc.), which isthen baked at a<br>high temperature, traditionally in a wood-fired oven.A small pizza is sometimes called a pizzetta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="aboutdivs" id="about_us_3">
+                <img class="d-block w-75 mx-auto" src="pizzas/3.png" alt="First slide">
+                <br>
+                <div class="card text-white bg-info w-75" style="border-radius: 10px;">
+                    <div class="card-body">
+                        <p class="card-text">In an effort to ensure we’re operating as safely as possible during this
+                            time,we
+                            have made<br>
+                            the decision to move to 100% Doorstep Deliveries. Starting today, all Favors
+                            will<br>
+                            be dropped off at the customer’s door to provide a completely contactless experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    </section> -->
+
+
+
+    <div id="inCart" class="cart" style="position: absolute ;position: fixed; z-index: 1;">
+        <!-- cart item -->
+        <div id="items">
+
+        </div>
+        <!--end of  cart item -->
+
+        <!-- cart total -->
+        <div id="cart-total" class="cart-total-container d-flex justify-content-around text-capitalize mt-5">
+            <!-- <h5>total</h5>
+          <h5> $ <strong id="cart-total" class="font-weight-bold">10.00</strong> </h5> -->
+        </div>
+        <!--end cart total -->
+        <!-- cart buttons -->
+        <div class="cart-buttons-container mt-3 d-flex justify-content-between">
+            <a id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">clear cart</a>
+            <a id="checkOut_cart" href="#placeOrder"
+                class="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
+        </div>
+        <!--end of  cart buttons -->
+        <!--  -->
+    </div>
+
+
+    <!-- //////////// -->
+
+    <!-- //////////// -->
+    <!-- //////////// -->
+    <!-- //////////// -->
+    <!-- //////////// -->
+    <!-- //////////// -->
+    <!-- //////////// -->
+    <!-- //////////// -->
+
+
+
+
+    <!-- end of about us -->
+
+
+    <!-- style="display: none;" -->
+
+
+
+
+
+
+
+
+    <!-- store -->
+    <section id="store" class="store py-5">
+
+        <!-- <div class="container"> -->
+        <!-- section title -->
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+                <h1 class="text-capitalize">our <strong class="banner-title ">store</strong></h1>
+            </div>
+        </div>
+        <!-- end of section title -->
+        <!--filter buttons -->
+        <div class="row">
+            <div class=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
+                <button class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" id="hide_nothing"
+                    data-filter="all">
+                    all</button>
+                <button id="only_pizzas" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+                    data-filter="pizzas">pizzas</button>
+                <button id="only_sides" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+                    data-filter="pizzas">sides</button>
+                <button id="only_drinks" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+                    data-filter="sides">drinks</button>
+                <button id="only_extras" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+                    data-filter="extras">extras</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+        <!-- ---------------------------------------------my edits---------------------------------------- -->
+
+        <div class="row" class="store-items" id="store-items">
+
+            <div class="card my-3 store-item pizza_class  " id="1">
+                <img src="pizzas/pizza1.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Farmhouse Pizza</h5>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(99,1,1)" id="regular1">
+                            Regular 99</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(199,1,2)"
+                            id="medium1">Medium 199 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(389,1,4)"
+                            id="large1">Large 389 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+
+
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(1)" id="add_to_cart_1">Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card my-3 store-item pizza_class">
+                <img src="pizzas/pizza2.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Peppy Paneer</h5>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(119,2,1)"
+                            id="regular1"> Regular 119</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(239,2,2)"
+                            id="medium1">Medium 239 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(399,2,4)"
+                            id="large1">Large 399 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(2)" id="add_to_cart_2">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3 store-item pizza_class">
+                <img src="pizzas/pizza3.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Veg Extravaganza</h5>
+
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(149,3,1)"
+                            id="regular1"> Regular 149</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(279,3,2)"
+                            id="medium1">Medium 279 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(449,3,4)"
+                            id="large1">Large 449 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(3)" id="add_to_cart_3">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3 store-item pizza_class ">
+                <img src="pizzas/pizza4.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Veggie Paradise</h5>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(179,4,1)"
+                            id="regular1">
+                            Regular 179</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(399,4,2)"
+                            id="medium1">Medium 399 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(449,4,4)"
+                            id="large1">Large 449 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(4)" id="add_to_cart_4">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item pizza_class ">
+                <img src="pizzas/pizza5.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Deluxe Veggie</h5>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(199,5,1)"
+                            id="regular1">
+                            Regular 199</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(389,5,2)"
+                            id="medium1">Medium 389 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(529,5,4)"
+                            id="large1">Large 529 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(5)" id="add_to_cart_5">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item pizza_class ">
+                <img src="pizzas/pizza6.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body pizza_size">
+                    <h5 class="card-title">Authentic Italian Pizza</h5>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <div class="btn-group" aria-label="Basic radio toggle button group">
+
+                        <label class="btn btn-outline-primary" for="btnradio1" onclick="pizzaone(219,6,1)"
+                            id="regular1">
+                            Regular 219</label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick="pizzaone(429,6,2)"
+                            id="medium1">Medium 429 </label>
+
+
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick="pizzaone(699,6,4)"
+                            id="large1">Large 699 </label>
+                    </div>
+                    <div style="display: flex;">
+
+                        <h5 class="store-item-value-selected mx-4"> </h5>
+
+                        <h5>
+                            <strong class="store-item-price-selected" class="font-weight-bold"></strong>
+                        </h5>
+
+                    </div>
+
+                    <!-- ----------------------------------------------------------------- -->
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(6)" id="add_to_cart_6">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item garlic_bread_class side_class">
+                <img src="sides/garlicbread1.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Stuffed Garlic Bread </h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">159</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(7)" id="add_to_cart_7">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card my-3  store-item  garlic_bread_class side_class">
+                <img src="sides/garlicbread2.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title"> Garlic Bread </h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">109</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(8)" id="add_to_cart_8">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card my-3  store-item garlic_bread_class side_class ">
+                <img src="sides/garlicbread3.jpeg" id="garlicbread3" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title"> Garlic Bread Sticks</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">129</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(9)" id="add_to_cart_9">Add to Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card my-3 store-item pasta_class side_class">
+                <img src="sides/pasta1.jpeg" id="pasta1" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Tikka Masala Pasta Veg</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">139</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(10)" id="add_to_cart_10">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card my-3  store-item pasta_class side_class">
+                <img src="sides/pasta2.jpeg" id="pasta2" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Cheesy Jalepeno Pasta Veg</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">159</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(11)" id="add_to_cart_11">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="card my-3  store-item pasta_class side_class">
+                <img src="sides/taco.jpeg" id="taco" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Taco Mexicana Veg</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">59</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(12)" id="add_to_cart_12">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item pasta_class side_class">
+                <img src="sides/chocolava.jpeg" id="chocolava" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Chocolava Cake</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">99</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(13)" id="add_to_cart_13">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item pasta_class side_class">
+                <img src="sides/burger_pizza.jpeg" id="burger_pizza" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Burger Pizza</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">59</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(14)" id="add_to_cart_14">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item pasta_class side_class">
+                <img src="sides/veg_parcel.jpeg" id="veg_parcel" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Veg Parcel</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">39</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(15)" id="add_to_cart_15">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- ========================================================================================= -->
+            <!-- ========================================================================================= -->
+            <!-- ========================================================================================= -->
+            <!-- ========================================================================================= -->
+            <!-- ========================================================================================= -->
+            <div class="card my-3  store-item  drink_class">
+                <img src="drinks/drink1.jpeg" id="drink1" class="card-img-top store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Pepsi</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">49</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(16)" id="add_to_cart_16">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item  drink_class">
+                <img src="drinks/drink2.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Coca Cola</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">49</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(17)" id="add_to_cart_17">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item  drink_class">
+                <img src="drinks/drink3.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Cold Coffee</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">99</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(18)" id="add_to_cart_18">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item  drink_class">
+                <img src="drinks/drink4.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Monster Energy drink</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">99</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(19)" id="add_to_cart_19">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item drink_class ">
+                <img src="drinks/drink5.jpeg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">RedBull Energy drink</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">99</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(20)" id="add_to_cart_20">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item drink_class ">
+                <img src="drinks/drink6.jpeg" id="drink6" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Water</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">19</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(21)" id="add_to_cart_21">Add to
+                        Cart
+
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="card my-3  store-item  extra_class">
+                <img src="extra/cheese.jpg" id="extra1" class="card-img-top store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Cheese Jalapeno Dip</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">69</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(22)" id="add_to_cart_22">Add to
+                        Cart
+                    </button>
+                </div>
+            </div>
+            <div class="card my-3  store-item  extra_class">
+                <img src="extra/dip.jpg" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Cheese Dip</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">29</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(23)" id="add_to_cart_23">Add to
+                        Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="card my-3  store-item  extra_class">
+                <img src="extra/tomato.webp" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Tomato Ketchup</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">1</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(24)" id="add_to_cart_24">Add to
+                        Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card my-3  store-item  extra_class">
+                <img src="extra/crunchy_strips.png" class="card-img-top  store-img" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Crunchy Strips</h5>
+                    <h5 class="store-item-value">Price Rs.<strong class="store-item-price-selected"
+                            class="font-weight-bold">48</strong></h5>
+                    <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(25)" id="add_to_cart_25">Add to
+                        Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+            <!-- --------------------------------------------------------------------- -->
+
+
+        </div>
+    </section>
+
+    <!-- modal-container -->
+    <div class="container-fluid ">
+        <div class="row lightbox-container align-items-center">
+            <div class="col-10 col-md-10 mx-auto text-right lightbox-holder">
+                <span class="lightbox-close"><i class="fas fa-window-close"></i></span>
+                <div class="lightbox-item"></div>
+                <span class="lightbox-control btnLeft"><i class="fas fa-caret-left"></i></span>
+                <span class="lightbox-control btnRight"><i class="fas fa-caret-right"></i></span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- contact -->
+    <!-- <section class="contact py-5" id="contact"
+        style="background-color: antiquewhite; border: 2px solid black; margin: auto;">
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+                <h1 class="text-capitalize">Contact <strong class="banner-title ">Us</strong></h1>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            
+            <div class="col-md-9 mb-md-0 mb-5 boxed1">
+                <form  method="post" enctype="text/plain">
+                  
+                    <div class="row">
+                      
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="contact-name" class="form-control">
+                                <label for="contact-name" class="">Your name</label>
+                            </div>
+                        </div>
+                      
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="contact-email" class="form-control">
+                                <label for="contact-email" class="">Your email</label>
+                            </div>
+                        </div>
+                       
+                    </div>
+                  
+                    <div class="row">
+                    
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="contact-Subject" class="form-control">
+                                <label for="contact-Subject" class="">Subject</label>
+                            </div>
+                        </div>
+                  
+                    </div>
+                  
+                    <div class="row">
+                       <div class="col-md-12">
+                            <div class="md-form">
+                                <textarea type="text" id="contact-message" class="form-control md-textarea"
+                                    rows="3"></textarea>
+                                <label for="contact-message">Your message</label>
+                            </div>
+                        </div>
+                 
+                    </div>
+                
+                </form>
+            </div>
+       
+         
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0 boxed1">
+                    <li>
+                        <a href="https://goo.gl/maps/SSjFjzty2tSvRZPk6"><i
+                                class="fa fa-map-marker fa-2x purple-text"></i></a>
+                        <p>VIT Vellore</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone fa-2x mt-4 purple-text"></i>
+                        <p>+91 9827114003</p>
+                    </li>
+                    <li>
+                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i
+                                class="fa fa-envelope fa-2x mt-4 purple-text"></i></a>
+                        <p class="mb-0">pizzaOnThego.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       
+     
+    </section> -->
+
+
+
+    <!-- contact -->
+    <section class="placeOrder py-5" id="placeOrder"
+        style="background-color: antiquewhite; border: 2px solid black; margin: auto;">
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+                <h1 class="text-capitalize">Place <strong class="banner-title ">Order</strong></h1>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row">
+
+            <div class="col-md-9 mb-md-0 mb-5">
+
+                <form style="width: 100%; margin: auto;">
+
+                    <div class="row mx-auto">
+
+                        <div class="col-md-8" id="finalCart" >
+                        </div>
+
+
+                        <div class="col-md-4">
+
+
+
+                            <input type="text" id="contact-name" placeholder="Enter your Name" class="form-control">
+                            <input type="text" id="contact-address" placeholder="Enter your Address"
+                                class="form-control">
+                            <input type="phone" id="contact-phone" placeholder="Enter your Contact no."
+                                class="form-control">
+
+                           
+                            <button type="submit" class="btn btn-primary" id="Placeorderbtn" data-toggle="modal"
+                                data-target="#exampleModal">
+                                Place Order
+                            </button>
+
+                         
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Pizza Club</h5>
+                                            <button type="button" class="close" id="Closeorderbtn" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Your Order is placed Successfully!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"  class="btn btn-secondary"data-dismiss="modal" onClick="window.location.reload()">  Close</button>
+                                            <button type="button" class="btn btn-primary" onClick="window.location.reload()" >Another Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- bootstrap js -->
+    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+    <!-- script js -->
+
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+</html>
