@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="static/css/bootstrap.min.css">
     <!-- main css -->
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet"  href="static/css/style.css">
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="static/css/all.css">
+    <link rel="stylesheet"  href="static/css/all.css">
     <!-- wen icon -->
     <link href="static/img/delivery.svg" rel="icon">
     <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -26,7 +26,7 @@
 
         <nav style="height: 10%; "
             class="navbar navbar-expand-lg px-4 navbar-dark bg-primary fixed-top scrolling-navbar">
-            <a class="navbar-brand" href="#"><img src="static/img/pizza_logo.svg" alt="logo" id="logo"></a>
+            <a class="navbar-brand" href="#"><img src="static/img/pizza_logo.svg" alt="" id="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="toggler-icon"><i class="fas fa-bars"></i></span>
@@ -79,7 +79,7 @@
     <section class="home">
         <div class="pizzaBody">
 
-            <img src="static/pizza_back1.jpg" alt="">
+            <img src="/static/pizza_back1.jpg" alt="">
 
 
 
@@ -138,7 +138,10 @@
     <!-- about us -->
 
     <!-- <div class="aboutusdivs">
+
             <div class="aboutdivs" id="about_us_2">
+
+
                 <div class="card text-white bg-primary my-4 w-75" style="border-radius: 10px;">
                     <div class="card-body">
                         <p class="card-text">Pizza Club is just the medium to add spice in your routine and get
@@ -149,11 +152,14 @@
                             and order some delicious pizzas.</p>
                     </div>
                 </div>
+
+
                 <a href="#store" class="btn btn-outline-secondary btn-black text-uppercase "
                     style="margin-left: 20%;">explore</a>
             </div>
             <div class="aboutdivs" id="about_us_1">
 <div id="images">
+
     <img class="d-block w-75 " src="static/pizzas/1.png" alt="Second slide">
 </div>
                 <br>
@@ -163,8 +169,13 @@
                         </p>
                     </div>
                 </div>
+
+
             </div>
+
+
             <div class="aboutdivs" id="about_us_3">
+
                 <img class="d-block w-75 mx-auto" src="static/pizzas/3.png" alt="First slide">
                 <br>
                 <div class="card text-white bg-info w-75" style="border-radius: 10px;">
@@ -177,9 +188,16 @@
                             be dropped off at the customer’s door to provide a completely contactless experience</p>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
+
      
+
+
+
     </section> -->
 
 
@@ -820,10 +838,12 @@
                 <h1 class="text-capitalize">Contact <strong class="banner-title ">Us</strong></h1>
             </div>
         </div>
+
         <br><br>
         <div class="row">
             
             <div class="col-md-9 mb-md-0 mb-5 boxed1">
+
                 <form  method="post" enctype="text/plain">
                   
                     <div class="row">
@@ -842,9 +862,11 @@
                             </div>
                         </div>
                        
+
                     </div>
                   
                     <div class="row">
+
                     
                         <div class="col-md-12">
                             <div class="md-form mb-0">
@@ -853,9 +875,11 @@
                             </div>
                         </div>
                   
+
                     </div>
                   
                     <div class="row">
+
                        <div class="col-md-12">
                             <div class="md-form">
                                 <textarea type="text" id="contact-message" class="form-control md-textarea"
@@ -864,11 +888,16 @@
                             </div>
                         </div>
                  
+
                     </div>
                 
+
+
                 </form>
+
             </div>
        
+
          
             <div class="col-md-3 text-center">
                 <ul class="list-unstyled mb-0 boxed1">
@@ -888,6 +917,8 @@
                     </li>
                 </ul>
             </div>
+
+
         </div>
        
      
@@ -909,7 +940,7 @@
 
             <div class="col-md-9 mb-md-0 mb-5">
 
-                <form style="width: 100%; margin: auto;">
+                <!-- <form action="/" method="POST" style="width: 100%; margin: auto;">
 
                     <div class="row mx-auto">
 
@@ -958,7 +989,55 @@
                         </div>
 
                     </div>
+                </form> -->
+           
+                <form action="" method="POST" style="width: 100%; margin: auto;">
+
+                    <div class="row mx-auto">
+
+                        <div class="col-md-8" id="finalCart" >
+                        </div>
+
+
+                        <div class="col-md-4">
+
+
+
+                            <input type="text" name="name" id="contact-name" placeholder="Enter your Name" class="form-control">
+                            <input type="text" name="address" id="contact-address" placeholder="Enter your Address"  class="form-control">
+                            <input type="phone" name="phone" id="contact-phone" placeholder="Enter your Contact no." class="form-control">
+                            <input type="textarea" name='order' id="order">
+                           
+                            <button type="submit" class="btn btn-primary" id="Placeorderbtn" data-toggle="modal"    data-target="#exampleModal">    Place Order
+                            </button>
+
+                         
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Pizza Club</h5>
+                                            <button type="button" class="close" id="Closeorderbtn" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Your Order is placed Successfully!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"  class="btn btn-secondary"data-dismiss="modal" onClick="window.location.reload()">  Close</button>
+                                            <button type="button" class="btn btn-primary" onClick="window.location.reload()" >Another Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </form>
+           
+           
             </div>
         </div>
     </section>
