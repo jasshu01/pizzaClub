@@ -3,7 +3,7 @@ const path = require("path");
 var nodemailer = require('nodemailer');
 // const { mainModule } = require("process");
 const app = express();
-
+var port=80;
 // var port = process.env.PORT || 8080;
 
 // app.use(express.static(__dirname )
@@ -17,16 +17,10 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'pug') // Set the template engine as pug
 app.set('views', path.join(__dirname, 'views')) // Set the views directory
 
-// ENDPOINTS
-app.get('/', (req, res) => {
-    // const con = "This is the best content on the internet so far so use it wisely"
-    // const params = { 'title': 'PubG is the best game' }
-    res.status(200).render('index.pug');
-    // res.status(200).render('index.html', params);
+
+app.get("/",(req,res)=>{
+    res.sendFile(path.join(__dirname+'/static/index.html'))
 })
-// count = 0;
-
-
 
 
 app.post("/", (req, res) => {
@@ -59,23 +53,8 @@ app.post("/", (req, res) => {
 
 
 // // START THE SERVER
-// app.listen(port, () => {
-    //     console.log(`The application started successfully on port ${port}`);
-    // });
+app.listen(port, () => {
+        console.log(`The application started successfully on port ${port}`);
+    });
     
     
-    
-    // app.listen(process.env.PORT);
-
-    // const server = app.listen(process.env.PORT || 5000, () => {
-    //     const port = server.address().port;
-    //     console.log(`Express is working on port ${port}`);
-    //   });
-
-    // app.listen(port, function() {
-    //     console.log('Our app is running on http://localhost:' + port);
-    // });
-
-    app.listen(process.env.PORT || 3000, function(){
-        console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-      });
