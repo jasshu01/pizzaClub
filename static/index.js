@@ -440,10 +440,21 @@ checkOut_cart.addEventListener("click", function () {
 });
 
 document.getElementById("order").style.display="none";
+document.getElementById("order_total").style.display="none";
 
 
 document.getElementById("Placeorderbtn").addEventListener('click',function(){
+    document.getElementById("order_total").value= document.getElementById("item-total").innerHTML;
+
+
+    JSON.parse(localStorage.getItem("cart")).forEach(element => {
+        
+    });
+
+
     document.getElementById("order").value=(localStorage.getItem("cart"));
+    // document.getElementById("order").value=JSON.parse(localStorage.getItem("cart"));
+    // document.getElementById("order").value=JSON.stringify(localStorage.getItem("cart"));
 })
 
 
