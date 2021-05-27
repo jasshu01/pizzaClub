@@ -267,7 +267,8 @@ function show_cart() {
 
 
     let finalCart = document.getElementById("finalCart");
-    finalCart.innerHTML = in_cart.innerHTML;
+    finalCart.innerHTML = "<h1 class='display-4'>Your Bill!</h1>"
+    finalCart.innerHTML += in_cart.innerHTML;
 
 
     let total_price = document.getElementById("cart-total");
@@ -456,5 +457,3 @@ document.getElementById("Placeorderbtn").addEventListener('click',function(){
     // document.getElementById("order").value=JSON.parse(localStorage.getItem("cart"));
     // document.getElementById("order").value=JSON.stringify(localStorage.getItem("cart"));
 })
-
-
