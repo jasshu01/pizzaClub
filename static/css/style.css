@@ -2,6 +2,10 @@ body {
   margin: 0px;
   padding: 0px;
   margin-top: 12vh;
+  font-family: "Kaushan Script", cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+  
 }
 
 ::-webkit-scrollbar {
@@ -48,11 +52,11 @@ body {
   --mainGrey: rgb(238, 238, 238);
 }
 
-body {
+/* body {
   font-family: "Kaushan Script", cursive;
   background: var(--mainWhite);
   color: var(--mainBlack);
-}
+} */
 /* nav links */
 .navbar-toggler {
   outline: none !important;
@@ -97,6 +101,8 @@ body {
   margin-left: 0px;
   margin-right: 0%;
 }
+
+.aboutImages {display:none;}
 
 .cart-info__icon {
   color: var(--mainBlack);
@@ -154,14 +160,14 @@ body {
 
 .centered {
   position: absolute;
-  top: 65%;
+  top: 54%;
   left: 70%;
   transform: translate(-25%, -25%);
 }
 
 .banner-title {
   color: red;
-  font-size: 4rem;
+  font-size: 6rem;
 }
 .banner-link {
   font-size: 1.5rem;
@@ -209,7 +215,7 @@ body {
 /* end of cart */
 /* cart item */
 .cart-item-remove {
-  color: var(--mainPink);
+  color: var(--mainBlack);
   transition: all 1s ease-in-out;
 }
 .cart-item-remove:hover {
@@ -233,10 +239,10 @@ body {
   color: var(--mainPink) !important;
   background: var(--mainBlack) !important;
 }
-.btn-pink:hover {
+/* .btn-pink:hover {
   background: var(--mainPink) !important;
   color: var(--mainBlack) !important;
-}
+} */
 /* end of cart buttons */
 
 /* about */
@@ -438,11 +444,12 @@ body {
 }
 
 #finalCart {
-  border: 5px dashed red;
-  width: 100%;
+  width: 60%;
   max-height: 50vh;
   overflow-y: scroll;
-}
+  padding-left: 70px;
+  background-color: aquamarine;
+} 
 
 .about {
   align-items: center;
@@ -553,3 +560,4 @@ body {
   }
 
 }
+
