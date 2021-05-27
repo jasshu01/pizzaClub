@@ -16,12 +16,21 @@ const orderDetailSchema = new mongoose.Schema({
     address: String,
     phone: Number,
     order: Object,
-    order_total: String
+    order_total: String,
+    instruction: String
+})
+
+const contactSchema = new mongoose.Schema({
+    name: String,
+    mail: String,
+    subject: String,
+    message: String
 })
 
 
 
 const Order = mongoose.model('Orders', orderDetailSchema);
+const Contact = mongoose.model('ContactUs', contactSchema);
 
 
 
@@ -37,15 +46,24 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
+    if (req.body.order) {
+        var myData = new Order(req.body);
+        myData.order = JSON.parse(req.body.order);
+        console.log(myData);
 
-    var myData = new Order(req.body);
-    myData.order = JSON.parse(req.body.order);
-    console.log(myData);
+        myData.save()//.then(() => { res.sendFile(path.join(__dirname+'/index.html')) })
+            .catch(() => { res.status(400).send("<h1>your Order is not completed , please try again</h1>") })
 
-    myData.save()//.then(() => { res.sendFile(path.join(__dirname+'/index.html')) })
-        .catch(() => { res.status(400).send("item was not saved to the databse") })
+
+    }
+    else {
+        var myData = new Contact(req.body);
+        console.log(myData);
+
+        myData.save().then(() => { res.sendFile(path.join(__dirname + '/index.html')) })
+            .catch(() => { res.status(400).send("<h1>your request is not completed , please try again</h1>") })
+    }
 })
-
 
 
 app.listen(process.env.PORT || 3000, () => {
