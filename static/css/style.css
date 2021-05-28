@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -434,17 +439,18 @@ body {
 #counter {
   margin-left: 50%;
 }
-
+/* 
 #placeOrder {
   height: 96vh;
-}
+} */
 
 #placeOrder input {
   margin: 10px 0px;
+  width: 200%;
 }
 
 #finalCart {
-  width: 60%;
+  width: 40%;
   max-height: 50vh;
   overflow-y: scroll;
   padding-left: 70px;
@@ -524,6 +530,21 @@ body {
   .pizzaBody img {
     margin-top: 100px;
   }
+  #finalCart{
+    width: 100% !important;
+    margin: auto;
+  }
+  #placeorderForm{
+    width: 100% !important;
+    margin: auto;
+    margin-right: 12px;
+  }
+
+  #placeOrder input {
+    width: 80%;
+  }
+  
+
 }
 
 @media screen and (max-width: 480px) {
@@ -543,13 +564,13 @@ body {
     position: absolute;
     top: 35%;
     left: 60%;
-    transform: translate(-40%, -180%);
+    transform: translate(-30%, -180%);
   }
   h1{
-    font-size: 23px;
+    font-size: 23px !important;
   }
   .banner-title {
-    font-size: 25px;
+    font-size: 20px;
   } 
    .banner-link {
     display: none;
