@@ -29,7 +29,10 @@ const orderDetailSchema = new mongoose.Schema({
     phone: Number,
     order: Object,
     order_total: String,
-    instruction: String
+    instruction: String,
+    datetime: Date,
+    completed: Boolean,
+    orderNo: Number
 })
 
 const contactSchema = new mongoose.Schema({
@@ -52,15 +55,17 @@ app.use(express.urlencoded({ extended: true }))
 
 
 
-
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'))
 })
 
+orderNo=0;
 app.post("/", (req, res) => {
     if (req.body.order) {
         var myData = new Order(req.body);
         myData.order = JSON.parse(req.body.order);
+        myData.orderNo=orderNo+1;
+        orderNo++;
         console.log(myData);
 
         myData.save()//.then(() => { res.sendFile(path.join(__dirname+'/index.html')) })
@@ -70,7 +75,7 @@ app.post("/", (req, res) => {
     }
     else {
         var myData = new Contact(req.body);
-        console.log(myData);
+        // console.log(myData);
 
         myData.save().then(() => { res.sendFile(path.join(__dirname + '/index.html')) })
             .catch(() => { res.status(400).send("<h1>your request is not completed , please try again</h1>") })
@@ -84,12 +89,22 @@ let pageInitial = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <title>Document</title>
     <style>
+
+    body{
+        margin:15px
+    }
         table,
         tr,
         td {
-            border: 1px solid black;
+            border: 1px solid black !important;
+            padding: 2px;
+            text-align:center;
+        }
+        table{
+            margin:10px
         }
     </style>
 </head>
@@ -106,6 +121,9 @@ let detailInital = `
     <thead>
         <tr>
 
+            <td>
+                S.no
+            </td>
             <td>
                 item name
             </td>
@@ -128,7 +146,11 @@ let detailEnd = `        </tbody>
 
 `;
 
-let pageEnd = `</body>
+let pageEnd = `
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="static/owner.js"></script>
+</body>
 
 </html>`
 
@@ -145,17 +167,21 @@ app.get("/owner", (req, res) => {
             if (err) throw err;
 
             for (i = 0; i < result.length; i++) {
-                s+=` name: ${result[i].name} <br>
+                s += ` 
+                <div id=orderCompleted${result[i].orderNo}>
+                
+             ${result[i].datetime} <br>
+                name: ${result[i].name} <br>
                 phone: ${result[i].phone} <br>
                 address: ${result[i].address} <br>
                 ORDER:`;
                 s += detailInital;
-                // result[i].order.forEach(element => 
-                    for(j=0;j<result[i].order.length;j++)
-                    {
+                for (j = 0; j < result[i].order.length; j++) {
                     s += `
                 <tr>
                 
+                <td>${j+1}
+                </td> 
                 <td>${result[i].order[j].name}
                 </td>
                     <td>
@@ -170,24 +196,55 @@ app.get("/owner", (req, res) => {
                     </tr>`
                 }
                 s += detailEnd;
-                // );
 
-                s+=`
+                s += `
                 <br>
                 BILL: ${result[i].order_total} <br>
                 Special instruction: ${result[i].instruction} <br>
 
                 `
 
-                s += `<hr>`
+                s += ` 
+                
+                <form method="POST" action="/owner"> 
+                <input type="text" name="OrderCompleteId" class="orderID" value="${result[i].orderNo}">
+                <button class="btn btn-primary" onClick="window.location.reload()" type="submit">Order Completed</button>
+                </form>
+                
+                <hr> 
+                
+                </div> `
             }
             s += pageEnd;
-            console.log(result);
-            // res.send(result)
             res.send(s)
         });
     });
 })
+
+app.post("/owner", (req, res) => {
+    console.log("deleting")
+    console.log(req.body)
+    console.log(req.body.OrderCompleteId)
+
+    var MongoClient = require('mongodb').MongoClient;
+    MongoClient.connect(DB, { useUnifiedTopology: true }, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("PizzaClub");
+        // dbo.collection("orders").deleteOne({ orderNo : req.body.OrderCompleteId }, function (err) {
+        dbo.collection("orders").deleteOne({ orderNo : parseInt(req.body.OrderCompleteId) }, function (err) {
+            if (err) throw err;
+            // console.log("1 document deleted");
+        });
+    });
+    res.status(204).send();
+})
+
+
+
+// app.get("/login",(req,res)=>{
+//     res.sendFile(path.join(__dirname + '/login.html'))
+// })
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is started on 127.0.0.1:' + (process.env.PORT || 3000))
