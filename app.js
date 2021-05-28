@@ -8,7 +8,19 @@ const app = express();
 
 
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/pizzawebsite", { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect("mongodb://localhost/pizzawebsite", { useNewUrlParser: true, useUnifiedTopology: true })
+
+
+var DB = `mongodb+srv://jasshugarg:Yashu1801@pizzaclub.4rjeu.mongodb.net/PizzaClub?retryWrites=true&w=majority`
+mongoose.connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+
+}).then(() => {
+    console.log("connection successful");
+}).catch((err) = console.log("no connection"));
 
 
 const orderDetailSchema = new mongoose.Schema({
@@ -65,6 +77,117 @@ app.post("/", (req, res) => {
     }
 })
 
+let pageInitial = `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+`;
+
+let detailInital = `   
+<br>
+
+<table>
+    <thead>
+        <tr>
+
+            <td>
+                item name
+            </td>
+            <td>
+                qty
+            </td>
+            <td>
+                price
+            </td>
+            <td>
+                total
+            </td>           
+        </tr>
+    </thead>
+
+    <tbody>`
+
+let detailEnd = `        </tbody>
+</table>
+
+`;
+
+let pageEnd = `</body>
+
+</html>`
+
+app.get("/owner", (req, res) => {
+
+    var MongoClient = require('mongodb').MongoClient;
+    // var url = "mongodb://localhost:27017/";
+
+    MongoClient.connect(DB, { useUnifiedTopology: true }, function (err, db) {
+        if (err) throw err;
+        let s = pageInitial;
+        var dbo = db.db("PizzaClub");
+        dbo.collection("orders").find({}).toArray(function (err, result) {
+            if (err) throw err;
+
+            for (i = 0; i < result.length; i++) {
+                s+=` name: ${result[i].name} <br>
+                phone: ${result[i].phone} <br>
+                address: ${result[i].address} <br>
+                ORDER:`;
+                s += detailInital;
+                // result[i].order.forEach(element => 
+                    for(j=0;j<result[i].order.length;j++)
+                    {
+                    s += `
+                <tr>
+                
+                <td>${result[i].order[j].name}
+                </td>
+                    <td>
+                    ${result[i].order[j].qty}
+                    </td>
+                    <td>
+                    ${result[i].order[j].price}
+                    </td>
+                    <td>
+                    ${parseInt(result[i].order[j].price) * result[i].order[j].qty}
+                    </td>
+                    </tr>`
+                }
+                s += detailEnd;
+                // );
+
+                s+=`
+                <br>
+                BILL: ${result[i].order_total} <br>
+                Special instruction: ${result[i].instruction} <br>
+
+                `
+
+                s += `<hr>`
+            }
+            s += pageEnd;
+            console.log(result);
+            // res.send(result)
+            res.send(s)
+        });
+    });
+})
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is started on 127.0.0.1:' + (process.env.PORT || 3000))
