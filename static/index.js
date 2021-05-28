@@ -1,5 +1,4 @@
 
-
 let pizza_class = document.getElementsByClassName("pizza_class")
 let garlic_bread_class = document.getElementsByClassName("garlic_bread_class")
 let pasta_class = document.getElementsByClassName("pasta_class")
@@ -15,27 +14,27 @@ let hide_nothing = document.getElementById("hide_nothing");
 
 localStorage.clear();
 function hide_pizzas() {
-    console.log("in funtion");
+    // console.log("in funtion");
     for (let i = 0; i < pizza_class.length; i++) {
         pizza_class[i].style.display = "none";
     }
 }
 
 function hide_drinks() {
-    console.log("in funtion");
+    // console.log("in funtion");
     for (let i = 0; i < drink_class.length; i++) {
         drink_class[i].style.display = "none";
     }
 }
 
 function hide_sides() {
-    console.log("in funtion");
+    // console.log("in funtion");
     for (let i = 0; i < side_class.length; i++) {
         side_class[i].style.display = "none";
     }
 }
 function hide_extra() {
-    console.log("in funtion");
+    // console.log("in funtion");
     for (let i = 0; i < extra_class.length; i++) {
         extra_class[i].style.display = "none";
     }
@@ -124,30 +123,55 @@ cartInfo.addEventListener('click', function () {
 
 // show_cart();
 function add_to_cart(product_number) {
-
+    var cartObj;
     let selectedPrice = document.getElementsByClassName("store-item-price-selected");
+    // let product_name = document.getElementsByClassName("card-title");
+
 
     let cart = localStorage.getItem("cart");
     if (cart == null) {
         cartObj = [];
     }
     else {
-        // cartObj = JSON.parse("cart");
+        cartObj = JSON.parse(cart);
     }
+    // console.log(cartObj)
+
+
+    alreadyThere = 0;
+
+
 
     if (selectedPrice[product_number - 1].innerHTML == ``) {
         alert("select Pizza");
         return;
     }
 
-    alreadyThere = 0;
+
+
     for (i = 0; i < cartObj.length; i++) {
-        // if (cartObj[i].name == (product_name[product_number - 1].innerHTML)) {
-        if (cartObj[i].price == (selectedPrice[product_number - 1].innerHTML)) {
-            incrementItem(i);
-            alreadyThere++;
+
+
+        if (product_name[product_number - 1].classList.contains("pizza_class_class")) {
+            if (cartObj[i].price === selectedPrice[product_number - 1].innerHTML) {
+                incrementItem(i);
+                alreadyThere++;
+            }
+
         }
+        else {
+
+            if (cartObj[i].name === product_name[product_number - 1].innerHTML) {
+                incrementItem(i);
+                alreadyThere++;
+            }
+        }
+
+
     }
+
+
+
 
     if (alreadyThere == 0) {
         let myProduct = {
@@ -156,17 +180,19 @@ function add_to_cart(product_number) {
             qty: 1
 
         };
-        // console.log(myProduct);
-
         cartObj.push(myProduct)
+        localStorage.setItem('cart', JSON.stringify(cartObj));
     }
-    localStorage.setItem('cart', JSON.stringify(cartObj));
-    console.log(localStorage);
+
+
+
 
     show_cart();
     complete_cart();
 
+
 }
+
 
 
 function complete_cart() {
@@ -175,15 +201,15 @@ function complete_cart() {
         cartObj = [];
     }
     else {
-        // cartObj = JSON.parse("cart");
+        cartObj = JSON.parse(cart);
     }
 
     let bill = 0;
 
     for (let i = 0; i < cartObj.length; i++) {
-        bill += parseInt(cartObj[i].price);
+        bill += parseInt(cartObj[i].price) * parseInt(cartObj[i].qty);
     }
-    console.log(bill);
+    // console.log(bill);
 
 }
 
@@ -191,35 +217,21 @@ function complete_cart() {
 $('.alert-success').hide();
 
 
-let placeOrderSection=document.getElementById("placeOrder");
+let placeOrderSection = document.getElementById("placeOrder");
 placeOrderSection.style.display = "none";
-// add_in_cart()
+
+
+
 function show_cart() {
 
-
-    //----------------------------------------------------------
-
-
-
-
-    if(localStorage.getItem("cart")==null)
-    {
+    if (localStorage.getItem("cart") == null) {
         placeOrderSection.style.display = "none";
     }
-    else{
+    else {
         placeOrderSection.style.display = "block";
-        
+
     }
-    
 
-
-
-
-    //----------------------------------------------------------
-
-
-    // let noOfItems=0;
-    // console.log("showing cart")
     let in_cart = document.getElementById("items");
     in_cart.innerHTML = ``;
 
@@ -228,7 +240,7 @@ function show_cart() {
         cartObj = [];
     }
     else {
-        // cartObj = JSON.parse("cart");
+        cartObj = JSON.parse(cart);
     }
 
     let bill = 0;
@@ -236,7 +248,7 @@ function show_cart() {
 
 
     for (let i = 0; i < cartObj.length; i++) {
-        bill += parseInt(cartObj[i].price * cartObj[i].qty);
+        bill += parseInt(cartObj[i].price) * parseInt(cartObj[i].qty);
         if (cartObj[i].qty == 0) {
             delete_item_from_cart(i);
         }
@@ -275,8 +287,8 @@ function show_cart() {
     total_price.innerHTML = ` <h5>total<sub>(inc. all taxes)</sub></h5>
     <h5> Rs. <strong id="cart-total" class="font-weight-bold">${bill}</strong> </h5>`
 
-    // console.log(bill);
-   
+    // // console.log(bill);
+
     finalCart.innerHTML += `<p class="mb-0 text-capitalize"><span >${cartObj.length} </span> items - Rs. <span
     class="item-total" >${bill}</span></p>`
 
@@ -287,7 +299,6 @@ function show_cart() {
 }
 
 function incrementItem(i) {
-    console.log("increment")
     let cart = localStorage.getItem("cart");
     if (cart == null) {
         cartObj = [];
@@ -303,7 +314,7 @@ function incrementItem(i) {
 }
 
 function decrementItem(i) {
-    console.log("increment")
+    // console.log("increment")
     let cart = localStorage.getItem("cart");
     if (cart == null) {
         cartObj = [];
@@ -333,7 +344,7 @@ clear_cart.addEventListener("click", function () {
 
 // $(alert).hide();
 function delete_item_from_cart(i) {
-    console.log("delete " + i);
+    // console.log("delete " + i);
     let cart = localStorage.getItem("cart");
     if (cart == null) {
         cartObj = [];
@@ -366,7 +377,7 @@ let large_pizzas = document.getElementsByClassName("large");
 
 
 function size_selected(x, i, s) {
-    console.log(x);
+    // console.log(x);
     let str;
     if (s == 1) {
         str = "Regular "
@@ -389,7 +400,7 @@ function size_selected(x, i, s) {
 
 
 function pizzaone(x, i, s) {
-    console.log(x);
+    // console.log(x);
     let str;
     if (s == 1) {
         str = "Regular "
@@ -415,21 +426,21 @@ show_cart();
 
 let checkOut_cart = document.getElementById("checkOut_cart");
 checkOut_cart.addEventListener("click", function () {
-    console.log("IN Checkout")
+    // console.log("IN Checkout")
     // document.getElementById("finalCart").style.display="block";
     document.getElementById("placeOrder").style.display = "block";
     document.getElementById("inCart").classList.remove("show-cart");
 
     show_cart();
 
-    console.log()
+    // console.log()
 
 
     // let finalCart = document.getElementById("finalCart");
     // finalCart.innerHTML += `<p class="mb-0 text-capitalize"><span >${document.getElementById("item-count").innerHTML} </span> items - Rs. <span
     // class="item-total" >${document.getElementById("item-total").innerHTML}</span></p>`
 
-    console.log(JSON.parse(localStorage.getItem("cart")));
+    // console.log(JSON.parse(localStorage.getItem("cart")));
     // orderObj={
     //     name:
     //     price:
@@ -440,20 +451,22 @@ checkOut_cart.addEventListener("click", function () {
 
 });
 
-document.getElementById("order").style.display="none";
-document.getElementById("order_total").style.display="none";
+document.getElementById("order").style.display = "none";
+document.getElementById("order_total").style.display = "none";
+document.getElementById("datetime").style.display = "none";
 
 
-document.getElementById("Placeorderbtn").addEventListener('click',function(){
-    document.getElementById("order_total").value= document.getElementById("item-total").innerHTML;
+document.getElementById("Placeorderbtn").addEventListener('click', function () {
+    document.getElementById("order_total").value = document.getElementById("item-total").innerHTML;
+    document.getElementById("datetime").value = new Date();
 
 
     JSON.parse(localStorage.getItem("cart")).forEach(element => {
-        
+
     });
 
 
-    document.getElementById("order").value=(localStorage.getItem("cart"));
-    // document.getElementById("order").value=JSON.parse(localStorage.getItem("cart"));
-    // document.getElementById("order").value=JSON.stringify(localStorage.getItem("cart"));
+    document.getElementById("order").value = (localStorage.getItem("cart"));
 })
+
+
