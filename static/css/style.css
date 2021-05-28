@@ -7,7 +7,7 @@ body {
   margin: 0px;
   padding: 0px;
   margin-top: 12vh;
-  font-family: "Kaushan Script", cursive;
+/* font-family: "Kaushan Script", cursive; */
   background: var(--mainWhite);
   color: var(--mainBlack);
   
