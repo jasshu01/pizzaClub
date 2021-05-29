@@ -73,9 +73,9 @@ app.post("/", (req, res) => {
 
 
     }
-    else {
+    if(req.body.subject) {
         var myData = new Contact(req.body);
-        // console.log(myData);
+        console.log(myData);
 
         myData.save().then(() => { res.sendFile(path.join(__dirname + '/index.html')) })
             .catch(() => { res.status(400).send("<h1>your request is not completed , please try again</h1>") })
@@ -105,11 +105,15 @@ let pageInitial = `<!DOCTYPE html>
         }
         table{
             margin:10px
+            
+        }
+        .table{
+            width:60%
         }
     </style>
 </head>
 
-<body>
+<body >
 
     
 `;
@@ -117,7 +121,7 @@ let pageInitial = `<!DOCTYPE html>
 let detailInital = `   
 <br>
 
-<table>
+<table class="table">
     <thead>
         <tr>
 
@@ -150,6 +154,18 @@ let pageEnd = `
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="static/owner.js"></script>
+<script>
+//prev=parseInt(-1);
+
+        setTimeout(function()
+        {
+            window.location.reload();
+            //var tables=document.getElementsByClassName("table");
+        }, 10000);
+                //console.log(tables.length)
+                
+
+      </script>
 </body>
 
 </html>`
@@ -233,10 +249,11 @@ app.post("/owner", (req, res) => {
         // dbo.collection("orders").deleteOne({ orderNo : req.body.OrderCompleteId }, function (err) {
         dbo.collection("orders").deleteOne({ orderNo : parseInt(req.body.OrderCompleteId) }, function (err) {
             if (err) throw err;
-            // console.log("1 document deleted");
         });
     });
-    res.status(204).send();
+    res.redirect('/owner');
+    // res.send()
+    // res.status(204).send();
 })
 
 
@@ -249,3 +266,5 @@ app.post("/owner", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is started on 127.0.0.1:' + (process.env.PORT || 3000))
 })
+
+
