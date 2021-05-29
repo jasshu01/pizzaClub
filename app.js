@@ -100,16 +100,21 @@ let pageInitial = `<!DOCTYPE html>
         tr,
         td {
             border: 1px solid black !important;
-            padding: 2px;
             text-align:center;
         }
-        table{
-            margin:10px
-            
+        td{
+            padding:1px !important
         }
         .table{
+            margin:1px;
             width:60%
         }
+
+        @media screen and (max-width: 1200px) {
+            .table{
+                width:100%
+            }
+          }
     </style>
 </head>
 
