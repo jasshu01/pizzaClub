@@ -1,16 +1,17 @@
 const express = require("express");
 const path = require("path");
 var nodemailer = require('nodemailer');
+// const { mainModule } = require("process");
 const app = express();
-require('dotenv').config();
-console.log(process.env);
-let random= Math.floor((Math.random() * 100000) + 1);
+// var port=80;
+
+
 
 var mongoose = require("mongoose");
 // mongoose.connect("mongodb://localhost/pizzawebsite", { useNewUrlParser: true, useUnifiedTopology: true })
 
 
-var DB = `mongodb+srv://jasshugarg:${process.env.PASSWORD}@pizzaclub.4rjeu.mongodb.net/PizzaClub?retryWrites=true&w=majority`
+var DB = `mongodb+srv://jasshugarg:Yashu1801@pizzaclub.4rjeu.mongodb.net/PizzaClub?retryWrites=true&w=majority`
 mongoose.connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -72,9 +73,6 @@ app.post("/", (req, res) => {
         myData.orderNo = orderNo + 1;
         orderNo++;
         console.log(myData);
-
-
-
 
         myData.save()//.then(() => { res.sendFile(path.join(__dirname+'/index.html')) })
             .catch(() => { res.status(400).send("<h1>your Order is not completed , please try again</h1>") })
@@ -183,7 +181,7 @@ let pageEnd = `
 
 </html>`
 
-app.post(`/${random}/owner`, (req, res) => {
+app.post("/login/owner", (req, res) => {
     console.log("deleting")
     console.log(req.body)
     console.log(req.body.OrderCompleteId)
@@ -193,19 +191,20 @@ app.post(`/${random}/owner`, (req, res) => {
         if (err) throw err;
         var dbo = db.db("PizzaClub");
         // dbo.collection("orders").deleteOne({ orderNo : req.body.OrderCompleteId }, function (err) {
-        dbo.collection("orders").deleteOne({ orderNo: parseInt(req.body.OrderCompleteId) }, function (err) {
+        dbo.collection("orders").deleteOne({ orderNo : parseInt(req.body.OrderCompleteId) }, function (err) {
             if (err) throw err;
         });
     });
-    res.redirect(`/${random}/owner`);
+    res.redirect('/login/owner');
     // res.send()
     // res.status(204).send();
 })
 
 
-app.get(`/${random}/owner`, (req, res) => {
+app.get("/login/owner", (req, res) => {
 
     var MongoClient = require('mongodb').MongoClient;
+    // var url = "mongodb://localhost:27017/";
 
     MongoClient.connect(DB, { useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
@@ -217,7 +216,7 @@ app.get(`/${random}/owner`, (req, res) => {
             for (i = 0; i < result.length; i++) {
                 s += ` 
                 <div id=orderCompleted${result[i].orderNo}>
-
+                
              ${result[i].datetime} <br>
                 name: ${result[i].name} <br>
                 phone: ${result[i].phone} <br>
@@ -227,7 +226,7 @@ app.get(`/${random}/owner`, (req, res) => {
                 for (j = 0; j < result[i].order.length; j++) {
                     s += `
                 <tr>
-
+                
                 <td>${j + 1}
                 </td> 
                 <td>${result[i].order[j].name}
@@ -253,24 +252,20 @@ app.get(`/${random}/owner`, (req, res) => {
                 `
 
                 s += ` 
-
-                <form method="POST" action=` 
-                s+= ` /${random}/owner>` 
-                s+=`
+                
+                <form method="POST" action="/login/owner"> 
                 <input type="text" name="OrderCompleteId" class="orderID" value="${result[i].orderNo}">
                 <button class="btn btn-primary" onClick="window.location.reload()" type="submit">Order Completed</button>
                 </form>
-
+                
                 <hr> 
-
+                
                 </div> `
             }
             s += pageEnd;
             res.send(s)
         });
     });
-
-
 })
 
 
@@ -283,7 +278,7 @@ app.get("/login", (req, res) => {
 app.post('/login', (req, res) => {
 
     var done = 0;
-    console.log(req.body)
+console.log(req.body)
     var MongoClient = require('mongodb').MongoClient;
     MongoClient.connect(DB, { useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
@@ -296,7 +291,7 @@ app.post('/login', (req, res) => {
                     console.log("username matched")
                     if (result[i].password === req.body.password) {
                         console.log("password matched");
-
+                        
                         done = 1;
                         break;
 
@@ -306,72 +301,15 @@ app.post('/login', (req, res) => {
             if (done == 0) {
                 res.send("Cannot login! <br> Incorrect Credentials")
             }
-            else {
-                res.redirect(`/${random}/owner`);
-            //     let s = pageInitial;
-            //     var dbo = db.db("PizzaClub");
-            //     dbo.collection("orders").find({}).toArray(function (err, result) {
-            //         if (err) throw err;
-
-            //         for (i = 0; i < result.length; i++) {
-            //             s += ` 
-            //     <div id=orderCompleted${result[i].orderNo}>
-                
-            //  ${result[i].datetime} <br>
-            //     name: ${result[i].name} <br>
-            //     phone: ${result[i].phone} <br>
-            //     address: ${result[i].address} <br>
-            //     ORDER:`;
-            //             s += detailInital;
-            //             for (j = 0; j < result[i].order.length; j++) {
-            //                 s += `
-            //     <tr>
-                
-            //     <td>${j + 1}
-            //     </td> 
-            //     <td>${result[i].order[j].name}
-            //     </td>
-            //         <td>
-            //         ${result[i].order[j].qty}
-            //         </td>
-            //         <td>
-            //         ${result[i].order[j].price}
-            //         </td>
-            //         <td>
-            //         ${parseInt(result[i].order[j].price) * result[i].order[j].qty}
-            //         </td>
-            //         </tr>`
-            //             }
-            //             s += detailEnd;
-
-            //             s += `
-            //     <br>
-            //     BILL: ${result[i].order_total} <br>
-            //     Special instruction: ${result[i].instruction} <br>
-
-            //     `
-
-            //             s += ` 
-                
-            //     <form method="POST" action=`${random}/owner`> 
-            //     <input type="text" name="OrderCompleteId" class="orderID" value="${result[i].orderNo}">
-            //     <button class="btn btn-primary" onClick="window.location.reload()" type="submit">Order Completed</button>
-            //     </form>
-                
-            //     <hr> 
-                
-            //     </div> `
-            //         }
-            //         s += pageEnd;
-            //         res.send(s)
-            //     });
+            else{
+                res.redirect('/login/owner');
             }
 
 
         });
     });
 
-
+    
 })
 
 app.listen(process.env.PORT || 3000, () => {

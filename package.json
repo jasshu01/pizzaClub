@@ -4,14 +4,18 @@
   "main": "app.js",
   "dependencies": {
     "D": "^1.0.0",
+    "dotenv": "^10.0.0",
+    "excel4node": "^1.7.2",
+    "exceljs": "^4.2.1",
     "express": "^4.17.1",
     "fsevents": "^2.3.2",
     "JSON": "^1.0.0",
-    "mongoose": "^5.12.9",
+    "mongoose": "^5.13.2",
     "node": "^16.0.0",
-    "nodemailer": "^6.6.0",
-    "nodemon": "^2.0.7",
-    "pug": "^3.0.2"
+    "nodemailer": "^6.6.2",
+    "nodemon": "^2.0.12",
+    "pug": "^3.0.2",
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "node app.js",
