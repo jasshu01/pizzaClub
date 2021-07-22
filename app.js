@@ -10,7 +10,7 @@ var mongoose = require("mongoose");
 // mongoose.connect("mongodb://localhost/pizzawebsite", { useNewUrlParser: true, useUnifiedTopology: true })
 
 
-var DB = `mongodb+srv://jasshugarg:${process.env.PASSWORD}@pizzaclub.4rjeu.mongodb.net/PizzaClub?retryWrites=true&w=majority`
+var DB = `mongodb+srv://jasshugarg:Yashu1801@pizzaclub.4rjeu.mongodb.net/PizzaClub?retryWrites=true&w=majority`
 mongoose.connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
