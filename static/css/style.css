@@ -1,6 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+
+.material-icons{
+  cursor: pointer;
 }
 
 body {
@@ -10,7 +14,6 @@ body {
   /* font-family: "Kaushan Script", cursive; */
   background: var(--mainWhite);
   color: var(--mainBlack);
-  
 }
 
 ::-webkit-scrollbar {
@@ -107,7 +110,9 @@ body {
   margin-right: 0%;
 }
 
-.aboutImages {display:none;}
+.aboutImages {
+  display: none;
+}
 
 .cart-info__icon {
   color: var(--mainBlack);
@@ -146,6 +151,7 @@ body {
   margin-bottom: 0%;
 }
 
+
 .pizzaBody img {
   margin: 0px;
   height: 100vh;
@@ -172,7 +178,7 @@ body {
 
 .banner-title {
   color: red;
-  font-size: 6rem;
+  font-size: 5rem;
 }
 .banner-link {
   font-size: 1.5rem;
@@ -257,7 +263,10 @@ body {
   margin-top: 0%;
   height: 94vh;
   display: flex;
-  background-color: antiquewhite; border: 2px solid black; width: 80%; margin: auto;
+  background-color: antiquewhite;
+  border: 2px solid black;
+  width: 80%;
+  margin: auto;
   padding: 30px;
 }
 
@@ -436,17 +445,10 @@ body {
   border: 1px solid black;
 }
 
-#counter {
-  margin-left: 50%;
-}
-/* 
-#placeOrder {
-  height: 96vh;
-} */
 
 #placeOrder input {
   margin: 10px 0px;
-  width: 200%;
+  /* width: 100%; */
 }
 
 #finalCart {
@@ -455,11 +457,37 @@ body {
   overflow-y: scroll;
   padding-left: 70px;
   background-color: aquamarine;
-} 
+}
 
 .about {
   align-items: center;
 }
+
+
+.grad {
+  background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.grad2 {
+  background-image: linear-gradient(to right, red, yellow);
+}
+
+
+#largePizzaWednesdaySpecial,.mediumPizzaWednesdaySpecial{
+  width: 40%;
+}
+
+.wednesday{
+  padding: 5px;
+  text-align: center;
+}
+
+
+.special_class{
+  height: 400px;
+}
+
+/* ------------------------------------------------------------------ */
 
 @media screen and (min-width: 1200px) {
   .aboutusdivs {
@@ -481,24 +509,8 @@ body {
     display: flex;
     flex-direction: column;
   }
-
-  /* #aboutusdivs {
-    display: block;
-
-  } */
-  /* .aboutdivs {
-    height: 12%;
-    width: 90%;
-    /* margin: auto; */
-  /* align-items: center; 
-  }  */
-
-  /* .aboutdivs img{
-   height:500px;
-   width: 500px;
-  }  */
 }
-
+/* ----------------------------------------------------------------------------- */
 @media screen and (max-width: 800px) {
   nav {
     margin: 0px;
@@ -530,40 +542,46 @@ body {
   .pizzaBody img {
     margin-top: 100px;
   }
-  #finalCart{
+  #finalCart {
     width: 100% !important;
     margin: auto;
   }
-  #placeorderForm{
+  #placeorderForm {
     width: 100% !important;
-    margin: auto;
-    margin-right: 12px;
+    /* margin: auto; */
+    /* margin-right: 12px; */
   }
 
   #placeOrder input {
     width: 80%;
   }
-  
-  .container{
+
+  .container {
     width: 95%;
   }
-  .aboutdivs{
+  .aboutdivs {
     /* border: 12px solid green; */
     width: 100%;
     margin: auto;
   }
-  #about .card{
+  #about .card {
     padding: 0px;
   }
-  .aboutdetails{
+  .aboutdetails {
     width: 100%;
     font-size: 12px;
   }
 }
+/* --------------------------------------------------------------------- */
 
 @media screen and (max-width: 480px) {
   .store-img {
     height: 40%;
+  }
+
+  nav {
+    height: 10%;
+    width: 100%;
   }
   .card {
     height: 40%;
@@ -571,39 +589,39 @@ body {
 
   .home img {
     height: 70%;
-    margin-top: 20%;
+    margin-top: 0%;
   }
-
+  
   .centered {
     position: absolute;
     top: 35%;
     left: 60%;
     transform: translate(-30%, -180%);
   }
-  h1{
+  h1 {
     font-size: 23px !important;
   }
   .banner-title {
     font-size: 20px;
-  } 
-   .banner-link {
+  }
+  .banner-link {
     display: none;
   }
-
+  
   .pizzaBody img {
-    margin-top: 79px;
+    width: 100%;
+    margin-top: 70px;
   }
-  .aboutdivs{
+  .aboutdivs {
     /* border: 12px solid green; */
     width: 100%;
     margin: auto;
   }
-  #about .card{
+  #about .card {
     padding: 0px;
   }
-  .aboutdetails{
+  .aboutdetails {
     width: 100%;
     font-size: 10px;
   }
 }
-

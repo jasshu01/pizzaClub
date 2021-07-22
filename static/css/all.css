@@ -430,8 +430,9 @@
  .fa-barcode:before {
    content: "\f02a"; }
  
- .fa-bars:before {
-   content: "\f0c9"; }
+ /* .fa-bars:before { */
+   /* content: "\f0c9"; */
+   /* } */
  
  .fa-baseball-ball:before {
    content: "\f433"; }
