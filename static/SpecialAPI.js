@@ -64,65 +64,6 @@ let s2 = `
 
 
 
-
-
-
-// // wednesday
-
-// let s3 = `   <div class="card my-3 wednesday  grad store-item  special_class">
-// <h1>Special Of the Day<h1>
-// <h5 class="card-title " style="display:none" id="specialOftheDay" >Special Of the Day</h5>
-// <h5 style="display:none" class="card-title" id="specialoftheDay" ></h5>
-//            <h2> Buy a Large Pizza <br><sub>Get a Medium Pizza Free  </sub> </h2> 
-//             <hr>
-//                 <div class="row">
-
-//                     <span>
-//                         <h6>Select Large Pizza</h6>
-//                     </span>
-//                     <select name="largePizzaWednesdaySpecial" class="mx-4" id="largePizzaWednesdaySpecial"> `
-// s3 += `<option value="" >Select </option>`
-// for (i = 0; i < pizzas.length; i++) {
-//     s3 += `<option value="${pizzas[i].pizzaName}"> ${pizzas[i].pizzaName}</option>`
-// }
-
-
-// s3 += `
-//                     </select></div>
-
-
-//                 <div class="row">
-
-//                     <span>
-//                         <h6>Select Medium Pizza</h6>
-//                     </span>
-
-//                     <select name="mediumPizzaWednesdaySpecial" class="mx-4" id="mediumPizzaWednesdaySpecial">`
-// s3 += `<option value="" >Select </option>`
-// for (i = 0; i < pizzas.length; i++) {
-//     s3 += `<option value="${pizzas[i].pizzaName}">${pizzas[i].pizzaName}</option>`
-// }
-
-
-
-// s3 += ` </select> 
-
-
-// </div>
-
-
-
-// <button class="btn btn-dark" onclick="wednesdayOffer()">I Selected Pizzas </button>
-
-// <h5 id="wednesdayPrice" class="store-item-value"></h5>
-//  <button class="btn btn-primary addToCartBtn" onclick="add_to_cart(1)" id="add_to_cart_1">Add to
-//            Cart
-
-//          </button>
-
-// </div>`
-
-
 s3 = `
 <div class="card my-3  grad store-item  special_class">
 <div class="card-body">  
@@ -180,26 +121,13 @@ s3 += ` </select>
 
 
 
-{/* <div class="card my-3  grad store-item  special_class">
-<div class="card-body">  
-<h1>Special Of the Day</h1><hr>
-<h3 class="card-title">Veg. Noodles & Veg. Manchurian </h3>
-<h5 class="store-item-value">Price Rs.<s>260</s><strong class="store-item-price-selected"
-            class="font-weight-bold">  199  </strong></h5>
-    <button class="btn btn-success addToCartBtn" onclick="add_to_cart(1)" id="add_to_cart_1">Add to
-        Cart
-    </button>
-</div>
-</div> */}
-
-
 
 function wednesdayOffer() {
 
     let largePizza = document.getElementById("largePizzaWednesdaySpecial").value;
     let mediumPizza = document.getElementById("mediumPizzaWednesdaySpecial").value;
 
-    if (largePizza == "" || mediumPizza == "") {
+    if (largePizza == "" && mediumPizza == "") {
         alert("select Pizzas");
     }
     else {
@@ -285,7 +213,7 @@ class="font-weight-bold">
    </strong>  </h5>
 
 
-<button class="btn btn-primary addToCartBtn" onclick="add_to_cart(1)" id="add_to_cart_1">Add to
+<button id="fridaybtn" class="btn btn-primary addToCartBtn" onclick="add_to_cart(1)" id="add_to_cart_1">Add to
             Cart
 
         </button>
@@ -294,41 +222,52 @@ class="font-weight-bold">
 
 `
 
+// document.getElementById("fridaybtn").style.display="none";
+
 function fridayOffer() {
     console.log(document.getElementById("mediumFridaySpecial1").value);
 
     console.log(document.getElementById("mediumFridaySpecial2").value);
-    document.getElementById("specialoftheDay").innerHTML = `Special Of the Day(${document.getElementById("mediumFridaySpecial1").value} , ${document.getElementById("mediumFridaySpecial2").value})`
-    let priceFriday = 0;
-    for (i = 0; i < pizzas.length; i++) {
-        if (document.getElementById("mediumFridaySpecial1").value === pizzas[i].pizzaName) {
-            priceFriday += parseInt(pizzas[i].mediumPrice);
 
-            console.log(priceFriday);
-            console.log(pizzas[i].index);
-            // break;
-
-        }
-
-        if (document.getElementById("mediumFridaySpecial2").value === pizzas[i].pizzaName) {
-            priceFriday += parseInt(pizzas[i].mediumPrice);
-            console.log(priceFriday);
-
-            console.log(pizzas[i].index);
-            // break;
-
-        }
-
-
+    if (document.getElementById("mediumFridaySpecial1").value == "" && document.getElementById("mediumFridaySpecial2").value == "") {
+        alert("select Pizzas");
     }
-    console.log(priceFriday);
-    priceFriday = Math.round(priceFriday * 0.75)
-    console.log(priceFriday);
-    document.getElementById("fridayPrice").innerHTML =
+    else {
 
 
-        document.getElementById("fridayPriceid").innerHTML = priceFriday;
-    document.getElementById("fridayPrice").innerHTML = `Price Rs.`;
+
+        document.getElementById("specialoftheDay").innerHTML = `Special Of the Day(${document.getElementById("mediumFridaySpecial1").value} , ${document.getElementById("mediumFridaySpecial2").value})`
+        let priceFriday = 0;
+        for (i = 0; i < pizzas.length; i++) {
+            if (document.getElementById("mediumFridaySpecial1").value === pizzas[i].pizzaName) {
+                priceFriday += parseInt(pizzas[i].mediumPrice);
+
+                console.log(priceFriday);
+                console.log(pizzas[i].index);
+                // break;
+
+            }
+
+            if (document.getElementById("mediumFridaySpecial2").value === pizzas[i].pizzaName) {
+                priceFriday += parseInt(pizzas[i].mediumPrice);
+                console.log(priceFriday);
+
+                console.log(pizzas[i].index);
+                // break;
+
+            }
+
+
+        }
+        console.log(priceFriday);
+        priceFriday = Math.round(priceFriday * 0.75)
+        console.log(priceFriday);
+        document.getElementById("fridayPrice").innerHTML =
+
+
+            document.getElementById("fridayPriceid").innerHTML = priceFriday;
+        document.getElementById("fridayPrice").innerHTML = `Price Rs.`;
+    }
 
 }
 
@@ -363,21 +302,6 @@ s6 += `
 </div>
 </div>
 
-`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 switch (new Date().getDay()) {
@@ -391,13 +315,13 @@ switch (new Date().getDay()) {
         s = s2;
         break;
     case 3:
-        s = s3;
+        s = s2;
         break;
     case 4:
         s = s1;
         break;
     case 5:
-        s = s5;
+        s = s6;
         break;
     case 6:
         s = s6;
