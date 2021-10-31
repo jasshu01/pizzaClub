@@ -321,10 +321,10 @@ switch (new Date().getDay()) {
         s = s1;
         break;
     case 5:
-        s = s6;
+        s = s2;
         break;
     case 6:
-        s = s6;
+        s = s2;
         break;
 }
 
