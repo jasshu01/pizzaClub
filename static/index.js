@@ -146,7 +146,7 @@ function add_to_cart(product_number) {
 
     if (product_name[product_number - 1].classList.contains("pizza_class_class")) {
         // pizzaSize = pizza_class_size[product_number - 1].innerHTML;
-        pizzaSize = document.getElementsByClassName("store-item-value-selected")[product_number - 4].innerHTML;
+        pizzaSize = document.getElementsByClassName("store-item-value-selected")[product_number - 1].innerHTML;
     }
 
 
@@ -164,7 +164,7 @@ function add_to_cart(product_number) {
 
 
         if (product_name[product_number - 1].classList.contains("pizza_class_class")) {
-            pizzaSize = document.getElementsByClassName("store-item-value-selected")[product_number - 4].innerHTML;
+            pizzaSize = document.getElementsByClassName("store-item-value-selected")[product_number - 1].innerHTML;
             if (cartObj[i].price === selectedPrice[product_number - 1].innerHTML && cartObj[i].name === product_name[product_number - 1].innerHTML) {
                 incrementItem(i);
                 alreadyThere++;
@@ -422,7 +422,7 @@ function pizzaone(x, i, s) {
         str = " Large "
     }
 
-    document.getElementsByClassName("store-item-value-selected")[i - 4].innerHTML = str;
+    document.getElementsByClassName("store-item-value-selected")[i - 1].innerHTML = str;
     document.getElementsByClassName("store-item-price-selected")[i - 1].innerHTML = x;
     // document.getElementsByClassName("pizza_class_size")[i - 1].innerHTML = str;
     // pizza_class_size[i - 4].innerHTML = str;

@@ -3,42 +3,42 @@ Product_numberValue = 1;
 let pizzaBox = document.getElementById("pizzaBox");
 let pizzas = [
     {
-        Product_number: 4,
+        // Product_number: 4,
         img: "pizza1.jpeg",
         pizzaName: "Deluxe Veggie",
         regularPrice: 99,
         mediumPrice: 219,
         largePrice: 429
     }, {
-        Product_number: 5,
+        // Product_number: 5,
         img: "pizza2.jpeg",
         pizzaName: "Farmhouse Pizza",
         regularPrice: 139,
         mediumPrice: 269,
         largePrice: 479
     }, {
-        Product_number: 6,
+        // Product_number: 6,
         img: "pizza3.jpeg",
         pizzaName: "Margreta Pizza",
         regularPrice: 99,
         mediumPrice: 199,
         largePrice: 349
     }, {
-        Product_number: 7,
+        // Product_number: 7,
         img: "pizza5.jpeg",
         pizzaName: "Peppy Panner Pizza",
         regularPrice: 199,
         mediumPrice: 389,
         largePrice: 529
     }, {
-        Product_number: 8,
+        // Product_number: 8,
         img: "pizza5.jpeg",
         pizzaName: "Authentic Italian Pizza",
         regularPrice: 159,
         mediumPrice: 329,
         largePrice: 599
     }, {
-        Product_number: 9,
+        // Product_number: 9,
         img: "pizza5.jpeg",
         pizzaName: "Veg. Loaded Pizza",
         regularPrice: 149,

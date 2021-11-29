@@ -1,5 +1,5 @@
 // let pizzaBox = document.getElementById("pizzaBox");
-Product_numberValue = 4+pizzas.length+sides.length;
+Product_numberValue = 1+pizzas.length+sides.length;
 let drinks = [
     {
         index: 10,
