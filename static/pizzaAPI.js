@@ -1,5 +1,5 @@
 console.log("pizzas");
-Product_numberValue = 4;
+Product_numberValue = 1;
 let pizzaBox = document.getElementById("pizzaBox");
 let pizzas = [
     {
