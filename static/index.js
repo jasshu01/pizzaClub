@@ -306,7 +306,7 @@ function show_cart() {
     document.getElementById("item-count").innerHTML = cartObj.length;
 
 
-    checkOffer() ;
+   // checkOffer() ;
 }
 
 function incrementItem(i) {
